@@ -4,32 +4,11 @@ import './todo-list-item.css';
 
 export default class TodoListItem extends Component {
 
-    state = {
-        done: false,
-        important: false
-    };
-
-
-    onLabelClick = () => {
-        this.setState({
-            done: true,
-
-        });
-    };
-
-    onMarkImportant = () => {
-        this.setState(({important}) =>{
-        return {
-        important: !important
-        }
-    });
-    };
-
-
+    
     render() {
 
-        const {label} = this.props;
-        const {done, important} = this.state;
+        const {label, onDeleted,onToggleDone,onToggleImportant,important,done} = this.props;
+
         let classNames = 'todo-list-item';
         if (done) {
             classNames += ' done';
@@ -39,26 +18,25 @@ export default class TodoListItem extends Component {
         }
 
         return (
-            <span className={classNames}>
-      <span
-          className="todo-list-item-label"
 
-          onClick={this.onLabelClick}>
+            <span className={classNames}>
+                <span className="todo-list-item-label"
+                      onClick={onToggleDone}>
         {label}
       </span>
 
       <button type="button"
               className="btn btn-outline-success btn-sm float-right"
-              onClick={this.onMarkImportant}>
+              onClick={onToggleImportant}>
         <i className="fa fa-check"/>
       </button>
 
       <button type="button"
-              className="btn btn-outline-danger btn-sm float-right">
-
+              className="btn btn-outline-danger btn-sm float-right"
+              onClick={onDeleted}>
       <i className="fa fa-times"/>
       </button>
-            < /span>
+            </span>
         );
     };
 }
