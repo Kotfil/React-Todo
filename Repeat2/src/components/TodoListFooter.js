@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 
-const TodoListFooter = () => {
-  return (
+class TodoListFooter extends Component {
+    render() {
+        return (
 
-        <div className="todoList-footer">
-            <button>All</button>
-            <button>Completed</button>
-            <button>Active</button>
-        </div>
-  )
-};
+            <div className="todoList-footer">
+                <button>All</button>
+                <button>Completed</button>
+                <button>Active</button>
+            </div>
+        )
+    }
+}
 
 export default TodoListFooter;

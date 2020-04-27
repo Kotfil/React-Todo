@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 
-const TodoListHeader = () => {
-    return(
-
+class TodoListHeader extends Component {
+    render() {
+        return (
             <div className="todoList">
                 <div className="todoList-header">
-                    <h3 className="todoList-header__title">What to Learn</h3>
+                    <h3 className="todoList-header__title">Wxxhat to Learn</h3>
                     <div className="todoList-newTaskForm">
                         <input type="text" placeholder="New task name"/>
                         <button>Add</button>
                     </div>
                 </div>
-        </div> )
-};
+            </div>
+        )
+    }
+}
 
 export default TodoListHeader;
