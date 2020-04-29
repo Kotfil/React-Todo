@@ -6,7 +6,7 @@ export default class TodoListHeader extends React.Component {
     constructor(props) {
 
         super(props);
-        this.newTasksTitileRef = React.createRef();
+        // this.newTasksTitileRef = React.createRef();
     }
 
     state = {
@@ -16,8 +16,10 @@ export default class TodoListHeader extends React.Component {
 
 
     onAddTaskClick = () => {
-        let newText = this.newTasksTitileRef.current.value;
-        this.newTasksTitileRef.current.value = "";
+        // let newText = this.newTasksTitileRef.current.value;
+        // this.newTasksTitileRef.current.value = "";
+        let newText = this.state.title;
+        this.setState({title: ""})
         if (newText === "") {
             this.setState({error: true})
         } else {
@@ -46,7 +48,7 @@ export default class TodoListHeader extends React.Component {
                     <input
                         type="text"
                         placeholder="New task name"
-                        ref={this.newTasksTitileRef}
+                        // ref={this.newTasksTitileRef}
                         className={this.state.error ? "error" : ""}
                         onChange={this.onTitleChanged}
                         onKeyPress={this.onKeyPress}
